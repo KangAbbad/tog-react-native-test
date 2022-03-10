@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import {
   Dimensions,
   Image,
-  ImageBackground,
   StatusBar,
   StyleSheet,
   Text,
@@ -50,84 +49,81 @@ const LoginScreen = () => {
         showHideTransition="fade"
       />
       <View style={styles.container}>
-        <ImageBackground
-          source={require('../assets/icons/bg.png')}
+        <Image
+          source={require('assets/icons/bg.png')}
           resizeMode="contain"
-          imageStyle={{ height: Dimensions.get('window').height + 560 }}
-          style={styles.bgImage}>
-          <View style={styles.coffeeLogoContainer}>
-            <Image
-              source={require('../assets/icons/coffee-bag.png')}
-              resizeMode="contain"
-              style={styles.coffeeLogo}
-            />
-          </View>
-          <View style={styles.inputFieldContainer}>
-            <InputField
-              name="username"
-              keyboardType="email-address"
-              placeholder="Email or Phone Number"
-              control={control}
-              rules={{
-                required: true,
-                // pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/,
-              }}
-            />
-            {errors?.username?.type === 'required' && (
-              <Text style={styles.inputFieldErrorText}>
-                Email or Phone Number is required.
-              </Text>
-            )}
-            {errors?.username?.type === 'pattern' && (
-              <Text style={styles.inputFieldErrorText}>
-                Invalid Email format.
-              </Text>
-            )}
-          </View>
-          <View
-            style={StyleSheet.flatten([
-              styles.inputFieldContainer,
-              { marginBottom: 10 },
-            ])}>
-            <InputField
-              name="password"
-              secureTextEntry
-              placeholder="Password"
-              control={control}
-              rules={{
-                required: true,
-              }}
-            />
-            {errors.password && (
-              <Text style={styles.inputFieldErrorText}>
-                Password is required.
-              </Text>
-            )}
-          </View>
-          <View style={styles.forgotPasswordBtnContainer}>
-            <TouchableOpacity>
-              <View style={styles.forgotPasswordBtn}>
-                <Text style={styles.forgotPasswordBtnText}>
-                  Forgot Password?
-                </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.submitBtnContainer}>
-            <TouchableHighlight
-              underlayColor="#FFFFFF"
-              onPress={handleSubmit(onSubmit)}>
-              <View style={styles.submitBtn}>
-                <Text style={styles.submitBtnText}>Login</Text>
-              </View>
-            </TouchableHighlight>
-          </View>
-          {isLoginError && (
+          style={styles.bgImage}
+        />
+        <View style={styles.coffeeLogoContainer}>
+          <Image
+            source={require('../assets/icons/coffee-bag.png')}
+            resizeMode="contain"
+            style={styles.coffeeLogo}
+          />
+        </View>
+        <View style={styles.inputFieldContainer}>
+          <InputField
+            name="username"
+            keyboardType="email-address"
+            placeholder="Email or Phone Number"
+            control={control}
+            rules={{
+              required: true,
+              // pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/,
+            }}
+          />
+          {errors?.username?.type === 'required' && (
             <Text style={styles.inputFieldErrorText}>
-              Invalid username or password!
+              Email or Phone Number is required.
             </Text>
           )}
-        </ImageBackground>
+          {errors?.username?.type === 'pattern' && (
+            <Text style={styles.inputFieldErrorText}>
+              Invalid Email format.
+            </Text>
+          )}
+        </View>
+        <View
+          style={StyleSheet.flatten([
+            styles.inputFieldContainer,
+            { marginBottom: 10 },
+          ])}>
+          <InputField
+            name="password"
+            secureTextEntry
+            placeholder="Password"
+            control={control}
+            rules={{
+              required: true,
+            }}
+          />
+          {errors.password && (
+            <Text style={styles.inputFieldErrorText}>
+              Password is required.
+            </Text>
+          )}
+        </View>
+        <View style={styles.forgotPasswordBtnContainer}>
+          <TouchableOpacity>
+            <View style={styles.forgotPasswordBtn}>
+              <Text style={styles.forgotPasswordBtnText}>Forgot Password?</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.submitBtnContainer}>
+          <TouchableHighlight
+            underlayColor="#FFFFFF"
+            onPress={handleSubmit(onSubmit)}>
+            <View style={styles.submitBtn}>
+              <Text style={styles.submitBtnText}>Login</Text>
+            </View>
+          </TouchableHighlight>
+        </View>
+        {isLoginError && (
+          <Text style={styles.inputFieldErrorText}>
+            Invalid username or password!
+          </Text>
+        )}
       </View>
     </>
   );
@@ -136,13 +132,19 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
-  },
-  bgImage: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#FFFFFF',
     paddingBottom: 100,
+  },
+  bgImage: {
+    position: 'absolute',
+    right: 0,
+    bottom: -122,
+    left: 0,
+    height: 'auto',
+    width: Dimensions.get('window').width,
+    aspectRatio: 1,
   },
   coffeeLogoContainer: {
     borderWidth: 2,
