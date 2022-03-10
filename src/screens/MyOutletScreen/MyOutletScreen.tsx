@@ -1,14 +1,14 @@
 import React from 'react';
 import { FlatList, StatusBar, StyleSheet, View } from 'react-native';
 
-import catalogueJson from 'dummyData/catalogue.json';
+import outletJson from 'dummyData/outlet.json';
 
 import Header from './Header';
-import ProductItem from './ProductItem';
+import OutletItem from './OutletItem';
 
-const CatalogueScreen = () => {
+const MyOutletScreen = () => {
   const renderItem = ({ item }: any) => (
-    <ProductItem imageUrl={item.image} name={item.name} price={item.price} />
+    <OutletItem name={item.name} address={item.address} />
   );
 
   return (
@@ -22,13 +22,13 @@ const CatalogueScreen = () => {
       <View style={styles.container}>
         <Header />
         <FlatList
-          data={catalogueJson}
+          data={outletJson}
           renderItem={renderItem}
           keyExtractor={item =>
             `${item.id}-${item.name.toLowerCase().replace(' ', '-')}`
           }
-          style={styles.productList}
-          contentContainerStyle={styles.productListContainer}
+          style={styles.outletList}
+          contentContainerStyle={styles.outletListContainer}
         />
       </View>
     </>
@@ -39,13 +39,13 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
   },
-  productListContainer: {
+  outletListContainer: {
     paddingHorizontal: 20,
     paddingBottom: 100,
   },
-  productList: {
+  outletList: {
     height: '100%',
   },
 });
 
-export default CatalogueScreen;
+export default MyOutletScreen;

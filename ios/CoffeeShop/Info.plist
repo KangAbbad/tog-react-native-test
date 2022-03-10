@@ -55,6 +55,8 @@
 	<array>
 		<string>OpenSans-Regular.ttf</string>
 		<string>OpenSans.ttf</string>
+		<string>OpenSans-Bold.ttf</string>
+		<string>OpenSans-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>

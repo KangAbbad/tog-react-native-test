@@ -6,13 +6,21 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-import MyOutletIcon from '../../../assets/icons/shop_icon.svg';
-import OrderIcon from '../../../assets/icons/cart_icon.svg';
-import NotificationIcon from '../../../assets/icons/notification_icon.svg';
-import HistoryIcon from '../../../assets/icons/history_icon.svg';
+import { LoginScreenNavigationProp } from 'dto/navigation';
+
+import MyOutletInactiveIcon from '../../../assets/icons/shop_icon_inactive.svg';
+import MyOutletActiveIcon from '../../../assets/icons/shop_icon_active.svg';
+import OrderInactiveIcon from '../../../assets/icons/cart_icon_inactive.svg';
+import OrderActiveIcon from '../../../assets/icons/cart_icon_active.svg';
+import NotificationInactiveIcon from '../../../assets/icons/notification_icon_inactive.svg';
+import NotificationActiveIcon from '../../../assets/icons/notification_icon_active.svg';
+import HistoryInactiveIcon from '../../../assets/icons/history_icon_inactive.svg';
+import HistoryActiveIcon from '../../../assets/icons/history_icon_active.svg';
 
 const MenuNavigation = () => {
+  const navigation = useNavigation<LoginScreenNavigationProp>();
   const [isMenuActive, onSetMenuActive] = useState([
     false,
     false,
@@ -31,7 +39,8 @@ const MenuNavigation = () => {
   return (
     <View>
       <View style={styles.catalogBtnContainer}>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('CatalogueScreen')}>
           <Text style={styles.catalogBtnText}>CATALOG</Text>
         </TouchableOpacity>
       </View>
@@ -42,9 +51,13 @@ const MenuNavigation = () => {
             onPressIn={() => onToggleMenuActive(0)}
             onPressOut={() => onToggleMenuActive(0)}
             style={styles.menuBtnContainer}
-            onPress={() => {}}>
+            onPress={() => navigation.navigate('MyOutletScreen')}>
             <View style={styles.menuBtn}>
-              <MyOutletIcon width={50} height={50} />
+              {isMenuActive[0] ? (
+                <MyOutletActiveIcon width={50} height={50} />
+              ) : (
+                <MyOutletInactiveIcon width={50} height={50} />
+              )}
               <Text
                 style={StyleSheet.flatten([
                   styles.menuBtnText,
@@ -62,9 +75,13 @@ const MenuNavigation = () => {
             onPressIn={() => onToggleMenuActive(1)}
             onPressOut={() => onToggleMenuActive(1)}
             style={styles.menuBtnContainer}
-            onPress={() => {}}>
+            onPress={() => navigation.navigate('OrderScreen')}>
             <View style={styles.menuBtn}>
-              <OrderIcon width={50} height={50} />
+              {isMenuActive[1] ? (
+                <OrderActiveIcon width={50} height={50} />
+              ) : (
+                <OrderInactiveIcon width={50} height={50} />
+              )}
               <Text
                 style={StyleSheet.flatten([
                   styles.menuBtnText,
@@ -84,9 +101,13 @@ const MenuNavigation = () => {
             onPressIn={() => onToggleMenuActive(2)}
             onPressOut={() => onToggleMenuActive(2)}
             style={styles.menuBtnContainer}
-            onPress={() => {}}>
+            onPress={() => navigation.navigate('NotificationScreen')}>
             <View style={styles.menuBtn}>
-              <NotificationIcon width={50} height={50} />
+              {isMenuActive[2] ? (
+                <NotificationActiveIcon width={50} height={50} />
+              ) : (
+                <NotificationInactiveIcon width={50} height={50} />
+              )}
               <Text
                 style={StyleSheet.flatten([
                   styles.menuBtnText,
@@ -104,9 +125,13 @@ const MenuNavigation = () => {
             onPressIn={() => onToggleMenuActive(3)}
             onPressOut={() => onToggleMenuActive(3)}
             style={styles.menuBtnContainer}
-            onPress={() => {}}>
+            onPress={() => navigation.navigate('HistoryScreen')}>
             <View style={styles.menuBtn}>
-              <HistoryIcon width={50} height={50} />
+              {isMenuActive[3] ? (
+                <HistoryActiveIcon width={50} height={50} />
+              ) : (
+                <HistoryInactiveIcon width={50} height={50} />
+              )}
               <Text
                 style={StyleSheet.flatten([
                   styles.menuBtnText,
@@ -131,8 +156,7 @@ const styles = StyleSheet.create({
   catalogBtnText: {
     color: '#5C5C5C',
     textAlign: 'right',
-    fontFamily: 'OpenSans',
-    fontWeight: '700',
+    fontFamily: 'OpenSans-Bold',
     fontSize: 18,
   },
   menuContainer: {
@@ -140,6 +164,7 @@ const styles = StyleSheet.create({
   },
   menuItemContainer: {
     flex: 1,
+    height: '100%',
   },
   menuItemGap: {
     flex: 0.15,
@@ -157,7 +182,7 @@ const styles = StyleSheet.create({
   menuBtnText: {
     color: '#522D07',
     fontSize: 18,
-    fontWeight: '700',
+    fontFamily: 'OpenSans-Bold',
     marginTop: 15,
   },
 });

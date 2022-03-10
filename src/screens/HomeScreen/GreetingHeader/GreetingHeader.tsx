@@ -33,8 +33,7 @@ const styles = StyleSheet.create({
   },
   greetingWordText: {
     color: '#522D07',
-    fontWeight: '700',
-    fontFamily: 'OpenSans',
+    fontFamily: 'OpenSans-Bold',
     fontSize: 22,
   },
   greetingIconImage: {

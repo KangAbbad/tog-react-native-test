@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   inputFieldErrorText: {
     color: 'red',
     fontSize: 12,
-    fontFamily: 'OpenSans',
+    fontFamily: 'OpenSans-Regular',
     marginTop: 5,
   },
   forgotPasswordBtnContainer: {
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
   },
   forgotPasswordBtnText: {
     color: '#FE972E',
-    fontFamily: 'OpenSans',
+    fontFamily: 'OpenSans-Regular',
     fontSize: 14,
   },
   submitBtnContainer: {
@@ -202,9 +202,8 @@ const styles = StyleSheet.create({
   },
   submitBtnText: {
     color: '#FFFFFF',
-    fontWeight: '700',
     fontSize: 16,
-    fontFamily: 'OpenSans',
+    fontFamily: 'OpenSans-Bold',
   },
 });
 

@@ -45,13 +45,7 @@ const styles = StyleSheet.create({
     borderColor: '#522D07',
     width: '80%',
     paddingHorizontal: 30,
-    fontFamily: 'OpenSans',
-  },
-  inputFieldErrorText: {
-    color: 'red',
-    fontSize: 12,
-    fontFamily: 'OpenSans',
-    marginTop: 5,
+    fontFamily: 'OpenSans-Regular',
   },
 });
 

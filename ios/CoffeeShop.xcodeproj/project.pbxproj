@@ -16,6 +16,8 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		0C2D1720136C45BC84BE1C37 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 144B809CE07841249A3D3683 /* OpenSans-Regular.ttf */; };
 		F01ED2B38F7F4EAAB7D298A2 /* OpenSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92D79B40B2D746018BC7A0E5 /* OpenSans.ttf */; };
+		F0B27018DEBF4889AB905042 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E6863B09F7448F28A4BBE8A /* OpenSans-Bold.ttf */; };
+		BB3D57375D17435CB5AFC3B2 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F85FFCB73D5044C6A240BD1F /* OpenSans-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		144B809CE07841249A3D3683 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; name = "OpenSans-Regular.ttf"; path = "../src/assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		92D79B40B2D746018BC7A0E5 /* OpenSans.ttf */ = {isa = PBXFileReference; name = "OpenSans.ttf"; path = "../src/assets/fonts/OpenSans.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1E6863B09F7448F28A4BBE8A /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; name = "OpenSans-Bold.ttf"; path = "../src/assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F85FFCB73D5044C6A240BD1F /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; name = "OpenSans-SemiBold.ttf"; path = "../src/assets/fonts/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,8 @@
 			children = (
 				144B809CE07841249A3D3683 /* OpenSans-Regular.ttf */,
 				92D79B40B2D746018BC7A0E5 /* OpenSans.ttf */,
+				1E6863B09F7448F28A4BBE8A /* OpenSans-Bold.ttf */,
+				F85FFCB73D5044C6A240BD1F /* OpenSans-SemiBold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -262,6 +268,8 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				0C2D1720136C45BC84BE1C37 /* OpenSans-Regular.ttf in Resources */,
 				F01ED2B38F7F4EAAB7D298A2 /* OpenSans.ttf in Resources */,
+				F0B27018DEBF4889AB905042 /* OpenSans-Bold.ttf in Resources */,
+				BB3D57375D17435CB5AFC3B2 /* OpenSans-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
