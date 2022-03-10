@@ -1,62 +1,45 @@
-import React from 'react';
-import { Control, FieldName, useController, useForm } from 'react-hook-form';
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import {
   Dimensions,
   Image,
   ImageBackground,
-  KeyboardTypeOptions,
   StatusBar,
   StyleSheet,
   Text,
-  TextInput,
   TouchableHighlight,
   TouchableOpacity,
   View,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+import { LoginScreenNavigationProp } from 'dto/navigation';
+
+import InputField from 'components/InputField';
 
 interface IFormValues {
   username: string;
   password: string;
 }
 
-interface IInputField {
-  name: FieldName<IFormValues>;
-  keyboardType?: KeyboardTypeOptions;
-  secureTextEntry?: boolean;
-  placeholder: string;
-  control: Control<IFormValues>;
-  rules: any;
-}
-
-const InputField = (props: IInputField) => {
-  const { name, keyboardType, secureTextEntry, placeholder, control, rules } =
-    props;
-  const { field } = useController<IFormValues>({
-    control,
-    defaultValue: '',
-    name,
-    rules,
-  });
-
-  return (
-    <TextInput
-      keyboardType={keyboardType}
-      secureTextEntry={secureTextEntry}
-      value={field.value}
-      style={styles.inputField}
-      placeholder={placeholder}
-      onChangeText={field.onChange}
-    />
-  );
-};
-
 const LoginScreen = () => {
+  const navigation = useNavigation<LoginScreenNavigationProp>();
+  const [isLoginError, onSetLoginError] = useState<boolean>(false);
+
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm<IFormValues>();
-  const onSubmit = (data: any) => console.log(data);
+
+  const onSubmit = (data: IFormValues) => {
+    if (data.username === 'admin' && data.password === 'password') {
+      onSetLoginError(false);
+      navigation.navigate('HomeScreen');
+    } else {
+      onSetLoginError(true);
+    }
+  };
 
   return (
     <>
@@ -87,7 +70,7 @@ const LoginScreen = () => {
               control={control}
               rules={{
                 required: true,
-                pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/,
+                // pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/,
               }}
             />
             {errors?.username?.type === 'required' && (
@@ -139,6 +122,11 @@ const LoginScreen = () => {
               </View>
             </TouchableHighlight>
           </View>
+          {isLoginError && (
+            <Text style={styles.inputFieldErrorText}>
+              Invalid username or password!
+            </Text>
+          )}
         </ImageBackground>
       </View>
     </>
@@ -154,6 +142,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingBottom: 100,
   },
   coffeeLogoContainer: {
     borderWidth: 2,
@@ -161,7 +150,7 @@ const styles = StyleSheet.create({
     borderColor: '#522D07',
     backgroundColor: '#FFFFFF',
     padding: 30,
-    marginBottom: 50,
+    marginBottom: 75,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -180,14 +169,6 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     marginBottom: 20,
-  },
-  inputField: {
-    borderWidth: 2,
-    borderRadius: 100,
-    borderColor: '#522D07',
-    width: '80%',
-    paddingHorizontal: 30,
-    fontFamily: 'OpenSans',
   },
   inputFieldErrorText: {
     color: 'red',
@@ -209,6 +190,7 @@ const styles = StyleSheet.create({
   },
   submitBtnContainer: {
     width: '80%',
+    marginBottom: 15,
   },
   submitBtn: {
     borderRadius: 100,

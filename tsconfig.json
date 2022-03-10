@@ -62,6 +62,7 @@
       "*": ["src/*"],
       "tests": ["tests/*"],
       "@components/*": ["src/components/*"],
+      "@assets/*": ["src/assets/*"],
     },
   },
   "exclude": [
