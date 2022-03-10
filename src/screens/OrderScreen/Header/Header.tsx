@@ -1,9 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import Icon from 'react-native-vector-icons/Entypo';
+import { useNavigation } from '@react-navigation/native';
+
+import { LoginScreenNavigationProp } from 'dto/navigation';
 
 const Header = () => {
+  const navigation = useNavigation<LoginScreenNavigationProp>();
+
   return (
     <View style={styles.container}>
+      <View style={styles.backBtnContainer}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Text>
+            <Icon name="chevron-left" size={30} color="#FF972F" />;
+          </Text>
+        </TouchableOpacity>
+      </View>
       <View style={styles.titleContainer}>
         <Text style={styles.titleText}>Order</Text>
       </View>
@@ -14,8 +27,13 @@ const Header = () => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: '#522D07',
     paddingVertical: 20,
+  },
+  backBtnContainer: {
+    flex: 0,
+    paddingLeft: 20,
   },
   titleContainer: {
     flex: 1,
@@ -25,6 +43,7 @@ const styles = StyleSheet.create({
     color: '#FF972F',
     fontSize: 18,
     fontFamily: 'OpenSans-SemiBold',
+    marginLeft: -50,
   },
 });
 
