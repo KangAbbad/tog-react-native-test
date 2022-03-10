@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   catalogBtnText: {
     color: '#5C5C5C',
     textAlign: 'right',
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: 'OpenSans',
     fontWeight: '700',
     fontSize: 18,
   },

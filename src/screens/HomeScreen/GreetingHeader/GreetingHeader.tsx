@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   greetingWordText: {
     color: '#522D07',
     fontWeight: '700',
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: 'OpenSans',
     fontSize: 22,
   },
   greetingIconImage: {
